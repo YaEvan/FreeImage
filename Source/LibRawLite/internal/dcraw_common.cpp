@@ -1,4 +1,4 @@
-/* 
+/*
   Copyright 2008-2013 LibRaw LLC (info@libraw.org)
 
 LibRaw is free software; you can redistribute it and/or modify
@@ -6937,7 +6937,7 @@ void CLASS parse_makernote_0xc634(int base, int uptag, unsigned dng_writer)
                 if (table_buf[iLensData+9] &&
                     (fabs(imgdata.lens.makernotes.CurFocal) < 0.1f))
                   imgdata.lens.makernotes.CurFocal =
-                    10*(table_buf[iLensData+9]>>2) * powf64(4, (table_buf[iLensData+9] & 0x03)-2);
+                    10*(table_buf[iLensData+9]>>2) * powf64(4.0f, ((table_buf[iLensData+9] & 0x03)-2)*1.0f);
                 if (table_buf[iLensData+10] & 0xf0)
                   imgdata.lens.makernotes.MaxAp4CurFocal =
                     powf64(2.0f, (float)((table_buf[iLensData+10] & 0xf0) >>4)/4.0f);
@@ -7809,7 +7809,7 @@ void CLASS parse_makernote (int base, int uptag)
               {
                 if (table_buf[iLensData+9] && (fabs(imgdata.lens.makernotes.CurFocal) < 0.1f))
                   imgdata.lens.makernotes.CurFocal =
-                    10*(table_buf[iLensData+9]>>2) * powf64(4, (table_buf[iLensData+9] & 0x03)-2);
+                    10*(table_buf[iLensData+9]>>2) * powf64(4.0f, ((table_buf[iLensData+9] & 0x03)-2)*1.0f);
                 if (table_buf[iLensData+10] & 0xf0)
                   imgdata.lens.makernotes.MaxAp4CurFocal =
                     powf64(2.0f, (float)((table_buf[iLensData+10] & 0xf0) >>4)/4.0f);
